@@ -1,7 +1,7 @@
-setup:
+build:
 	mvn clean install
 
-dev:
+run:
 	mvn liberty:dev
 
 stop:

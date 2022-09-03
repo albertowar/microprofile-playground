@@ -1,4 +1,4 @@
-setup:
+build:
 	mvn clean install
 
 run:

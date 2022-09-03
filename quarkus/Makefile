@@ -1,5 +1,5 @@
-setup:
+build:
 	mvn clean install
 
-dev:
+run:
 	mvn quarkus:dev
