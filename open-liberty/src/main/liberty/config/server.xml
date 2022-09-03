@@ -16,4 +16,6 @@
 
     <!-- Configures the application on a specified context root -->
     <webApplication contextRoot="/" location="open-liberty.war" />
+
+    <mpMetrics authentication="false"/>
 </server>

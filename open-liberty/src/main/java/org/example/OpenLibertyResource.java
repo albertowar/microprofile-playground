@@ -1,5 +1,6 @@
 package org.example;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.example.client.HelidonClient;
 import org.example.client.QuarkusClient;
@@ -13,7 +14,6 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@ApplicationScoped
 @Path("/v1")
 public class OpenLibertyResource {
 
@@ -28,6 +28,9 @@ public class OpenLibertyResource {
     @RestClient
     private QuarkusClient quarkusClient;
 
+    @Counted(
+      name = "hello"
+    )
     @GET
     @Path("/hello/{name}")
     @Produces(MediaType.TEXT_PLAIN)

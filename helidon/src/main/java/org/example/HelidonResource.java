@@ -1,6 +1,7 @@
 
 package org.example;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.example.client.OpenLibertyClient;
 import org.example.client.QuarkusClient;
@@ -28,6 +29,9 @@ public class HelidonResource {
     @RestClient
     private QuarkusClient quarkusClient;
 
+    @Counted(
+      name = "hello"
+    )
     @GET
     @Path("/hello/{name}")
     @Produces(MediaType.TEXT_PLAIN)

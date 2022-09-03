@@ -8,6 +8,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.example.client.HelidonClient;
 import org.example.client.OpenLibertyClient;
@@ -26,6 +27,9 @@ public class QuarkusResource {
     @RestClient
     private OpenLibertyClient openLibertyClient;
 
+    @Counted(
+      name = "hello"
+    )
     @GET
     @Path("/hello/{name}")
     @Produces(MediaType.TEXT_PLAIN)
